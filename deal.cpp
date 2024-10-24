@@ -1,14 +1,52 @@
+//Deal file
+//Deals cards to dealer and user.
+//10-24-24
 
+#include "CardDeck.h"
+#include <iostream>
+#include <vector>
 
+using namespace std;
 
-shuffled deck
+struct Card{
 
-int current_card = deck.pop_back();
+	int suit;
+	int rank;
 
-int suit;
+};
 
-if (current_card >= 0 && current_card < 13) {
-  suit = 0;
+int main(){
+	
+	vector<Card> deck;
+	
+	for(int i=0;i<52;i++){
+
+		Card newCard;
+
+		if(i >= 0 && i<13){
+			newCard.suit = 0;
+		}
+		else if(i >=13 && i < 26){
+			newCard.suit = 1;
+		}
+		else if(i >=26 && i < 39){
+			newCard.suit = 2;
+		}
+		else{
+			newCard.suit = 3;
+		}
+
+		newCard.rank = i % 13;
+
+		deck.push_back(newCard);
+
+	}
+
+	for(const auto card : deck){
+		cout << card.rank << " of " << card.suit << endl;
+	}
+
+	
+
+	return 0;
 }
-
-int card_value = current_card % 13;
