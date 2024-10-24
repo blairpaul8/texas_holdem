@@ -45,7 +45,13 @@ void CardDeck::print_deck() {
 }
 
 
-void print_hand(vector<Card> hand) {
+Card CardDeck::deal() {
+  Card card = deck.back();
+  deck.pop_back();
+  return card;
+}
+
+void CardDeck::print_hand(vector<Card> hand) {
   string suit;
   int spaces = 7;
 
