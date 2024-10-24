@@ -5,7 +5,6 @@
 using namespace std;
 
 
-#define STARTING_CASH = 0;
 
 
 int main() {
@@ -22,12 +21,12 @@ int main() {
   for (int i = 0; i < 6; i++) {
 
     if ((i % 2) == 0) {
-      Card card = deck->deal();
-      player_hand.push_back(card);
+      Card new_card = deck->deal();
+      player_hand.push_back(new_card);
     }
     else {
-      Card card = deck->deal();
-      dealer_hand.push_back(card);
+      Card new_card = deck->deal();
+      dealer_hand.push_back(new_card);
     }
   }
 

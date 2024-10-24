@@ -46,9 +46,9 @@ void CardDeck::print_deck() {
 
 
 Card CardDeck::deal() {
-  Card card = deck.back();
+  Card new_card = deck.back();
   deck.pop_back();
-  return card;
+  return new_card;
 }
 
 void CardDeck::print_hand(vector<Card> hand) {
@@ -71,7 +71,7 @@ void CardDeck::print_hand(vector<Card> hand) {
         suit = clubs;
       }
       //If the rank is 10 the spacing for the card printing has to change
-      if (hand[j].rank == 8 || hand[j].rank == 21 || hand[j].rank == 33 || hand[j].rank == 47) {
+      if (hand[j].rank == 8) {
         spaces = 6;
       }
 
