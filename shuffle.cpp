@@ -11,5 +11,5 @@ void CardDeck::shuffle(int seed = 0) {
 
 	srand(seed);
 
-	random_shuffle(deck.being(), deck.end());
+	random_shuffle(deck.begin(), deck.end());
 }

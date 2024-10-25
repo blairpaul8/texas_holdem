@@ -2,7 +2,7 @@ OOP Classes
 
 - Deck Class 
   
-  - Shuffle function    (Camden)
+  - DONE - Shuffle function    (Camden)
   - Display for the playing card  (Paul)
   - Deal       (Nick)
 
