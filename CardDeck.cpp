@@ -2,7 +2,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <ctime>
+#include <ctime> //random_shuffle
+#include <algorithm> //srand
+#include <cstdlib> //time
 
 using namespace std;
 
@@ -22,7 +24,7 @@ CardDeck::CardDeck(int n) {
     else if (i >= 13 && i < 26) {
       playingCard.suit = 1;
     }
-    else if (i >= 27 && i < 39) {
+    else if (i >= 26 && i < 39) {
       playingCard.suit = 2;
     }
     else {
@@ -44,14 +46,20 @@ void CardDeck::print_deck() {
   cout <<endl;
 }
 
-
+/*
 Card CardDeck::deal() {
   Card new_card = deck.back();
   deck.pop_back();
   return new_card;
 }
+*/
 
+<<<<<<< HEAD
 /*void CardDeck::print_hand(vector<Card> hand) {
+=======
+/*
+void CardDeck::print_hand(vector<Card> hand) {
+>>>>>>> adab7ff91a1429012b19f2bc32b03e6414718fc4
   string suit;
   int spaces = 7;
 
@@ -95,5 +103,19 @@ Card CardDeck::deal() {
       }
     }
     cout << endl;
+<<<<<<< HEAD
   }*/
 //} 
+=======
+
+void CardDeck::shuffle(int seed) {
+
+    if (seed == 0) { //if no set seed, random seed generated
+        seed = static_cast<int>(time(0)); //cast to int
+    }
+
+    srand(seed);
+
+    random_shuffle(deck.begin(), deck.end());
+}
+>>>>>>> adab7ff91a1429012b19f2bc32b03e6414718fc4

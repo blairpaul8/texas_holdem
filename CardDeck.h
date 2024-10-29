@@ -17,8 +17,8 @@ struct Card {
 class CardDeck {
   public:
     CardDeck(int n = 52);
-    void shuffle(int seed);
-    Card deal();
+    void shuffle(int seed = 0);
+    int deal();
     vector<Card> player_hand;
     vector<Card> dealer_hand;
     void print_hand(vector<Card> &hand);
