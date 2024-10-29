@@ -18,7 +18,7 @@ int main() {
   CardDeck *deck = new CardDeck();
   deck->print_deck();
   
-  for (int i = 0; i < 6; i++) {
+  /*for (int i = 0; i < 6; i++) {
 
     if ((i % 2) == 0) {
       Card new_card = deck->deal();
@@ -30,5 +30,5 @@ int main() {
     }
   }
 
-  deck->print_hand(player_hand);
+  deck->print_hand(player_hand);*/
 }

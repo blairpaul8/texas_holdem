@@ -51,7 +51,7 @@ Card CardDeck::deal() {
   return new_card;
 }
 
-void CardDeck::print_hand(vector<Card> hand) {
+/*void CardDeck::print_hand(vector<Card> hand) {
   string suit;
   int spaces = 7;
 
@@ -95,5 +95,5 @@ void CardDeck::print_hand(vector<Card> hand) {
       }
     }
     cout << endl;
-  }
-} 
+  }*/
+//} 
