@@ -10,20 +10,31 @@ using namespace std;
 // 2 = spades
 // 3 = clubs
 struct Card {
-  int suit;
   int rank;
+  int suit;
+  Card() : rank(0), suit(0) {}
+  Card(const Card& other) : rank(other.rank), suit(other.suit) {}
+  
+  Card& operator=(const Card& other) {
+    if (this != &other) {
+      rank = other.rank;
+      suit = other.suit;
+    }
+    return *this;
+  }
 };
 
 class CardDeck {
   public:
     CardDeck(int n = 52);
     void shuffle(int seed = 0);
-    int deal();
+    Card deal();
     vector<Card> player_hand;
     vector<Card> dealer_hand;
     void print_hand(vector<Card> &hand);
+
     void print_deck();
-  
+
   private:
     int n = 52;
     vector<Card> deck;

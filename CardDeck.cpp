@@ -1,5 +1,6 @@
 #include "CardDeck.h"
 #include <iostream>
+#include <iomanip>
 #include <vector>
 #include <string>
 #include <ctime> //random_shuffle
@@ -46,22 +47,16 @@ void CardDeck::print_deck() {
   cout <<endl;
 }
 
-/*
 Card CardDeck::deal() {
-  Card new_card = deck.back();
+  Card dealt_card = deck.back();
   deck.pop_back();
-  return new_card;
+  return dealt_card;
 }
-*/
 
-<<<<<<< HEAD
-/*void CardDeck::print_hand(vector<Card> hand) {
-=======
-/*
-void CardDeck::print_hand(vector<Card> hand) {
->>>>>>> adab7ff91a1429012b19f2bc32b03e6414718fc4
+void CardDeck::print_hand(vector<Card> &hand) {
   string suit;
   int spaces = 7;
+  int spaces2 = 7;
 
   for (int i = 0; i < 7; i++) {
     for (int j = 0; j < 3; j++) {
@@ -79,34 +74,40 @@ void CardDeck::print_hand(vector<Card> hand) {
         suit = clubs;
       }
       //If the rank is 10 the spacing for the card printing has to change
-      if (hand[j].rank == 8) {
+      if (hand[j].rank >= 8) {
         spaces = 6;
+        spaces2 = 7;
+      }
+      else {
+        spaces = 7;
+        spaces2 = 7;
       }
 
       if (i == 0) {
-        cout << " -------- " << "   ";
+        cout << " ------- " << "   ";
       }
       if (i == 1) {
-        cout << "|" << hand[i].rank << setw(spaces); << "|" << "   ";
+        cout << "|" << hand[j].rank << setw(spaces) << "|" << "   ";
       }
-      if (i = 2) {
-        cout << "|        |" << "   ";
+      if (i == 2) {
+        cout << "|       |" << "   ";
       }
       if (i == 3) {
-        cout << "|    " << suit << "   |" << "   ";
+        cout << "|   " << suit << "   |" << "   ";
       }
       if (i == 4) {
-        cout << "|        |" << "   ";
+        cout << "|       |" << "   ";
       }
       if (i == 5) {
-        cout << "|" setw(space) << hand[j].rank << "|" << "   ";
+        cout << "|" << setw(spaces2) << hand[j].rank << "|" << "   ";
+      }
+      if (i == 6) {
+        cout << " ------- " << "   ";
       }
     }
     cout << endl;
-<<<<<<< HEAD
-  }*/
-//} 
-=======
+  }
+} 
 
 void CardDeck::shuffle(int seed) {
 
@@ -118,4 +119,3 @@ void CardDeck::shuffle(int seed) {
 
     random_shuffle(deck.begin(), deck.end());
 }
->>>>>>> adab7ff91a1429012b19f2bc32b03e6414718fc4
