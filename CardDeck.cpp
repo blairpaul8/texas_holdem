@@ -14,6 +14,8 @@ const string diamonds = reinterpret_cast<const char*>(u8"\u2666");
 const string clubs = reinterpret_cast<const char*>(u8"\u2663");
 const string spades = reinterpret_cast<const char*>(u8"\u2660");
 
+const string cardValues[] = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+
 //Contructor
 CardDeck::CardDeck(int n) {
   this->n = n;
@@ -31,7 +33,7 @@ CardDeck::CardDeck(int n) {
     else {
       playingCard.suit = 3;
     }
-    playingCard.rank = i % 13;
+    playingCard.rank = cardValues[i % 13];
     this->deck.push_back(playingCard);
   }
 }
@@ -74,7 +76,7 @@ void CardDeck::print_hand(vector<Card> &hand) {
         suit = clubs;
       }
       //If the rank is 10 the spacing for the card printing has to change
-      if (hand[j].rank >= 8) {
+      if (hand[j].rank == "10") {
         spaces = 6;
         spaces2 = 7;
       }

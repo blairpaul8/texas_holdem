@@ -10,10 +10,17 @@ using namespace std;
 // 2 = spades
 // 3 = clubs
 struct Card {
-  int rank;
+  string rank;
   int suit;
-  Card() : rank(0), suit(0) {}
-  Card(const Card& other) : rank(other.rank), suit(other.suit) {}
+
+  Card() {
+    rank = "";
+    suit = 0;
+  }
+  Card(const Card& other) {
+    this->rank = other.rank;
+    this->suit = other.suit;
+  }
   
   Card& operator=(const Card& other) {
     if (this != &other) {
