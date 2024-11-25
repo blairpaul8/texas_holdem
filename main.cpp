@@ -13,36 +13,16 @@ int main() {
   char turn;
   bool playing = true;
 
-  //prompt player to play and input starting cash.
-
-  //promt player to play a hand for buyin amount $5
   vector<Card> dealer_hand;
   vector<Card> player_hand;
 
   CardDeck *deck = new CardDeck(52);
-  //deck->print_deck();
   deck->shuffle(12); //will always be random unless specific is used (dont use 0)
                      //deck->print_deck();
-
-  /*for (int i = 0; i < 6; i++) {
-    if ((i % 2) == 0) {
-      Card new_card = deck->deal();
-      player_hand.push_back(new_card);
-    }
-    else {
-      Card new_card;
-      new_card = deck->deal();
-      dealer_hand.push_back(new_card);
-    }
-  }*/
-
-  //deck->print_hand(dealer_hand);
-
 
   cout << "Welcome to 3 Card Poker!" << endl << endl;
 
   while (true) {
-
     cout << "How much money would you like to start with? ($10 - $50)" << endl;
     cout << ">> ";
     cin >> player_money;
@@ -56,13 +36,11 @@ int main() {
   }
 
   while (playing) {
-
     cout << "Starting new game with $" << player_money << "..." << endl;
     cout << "Current Player wins: " << player_wins << endl;
     cout << "Current Dealer wins: " << dealer_wins << endl << endl;
 
     while (true) {
-
       cout << "How much money would you like to blind bet? (minimum $5)" << endl; 
       cout << ">> ";
       cin >> blind;
