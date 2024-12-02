@@ -1,4 +1,4 @@
-CXX=		g++
+CXX=		clang++
 CXXFLAGS=	-g -Wall -std=gnu++11
 SHELL=		bash
 

@@ -5,7 +5,8 @@
 #include <string>
 #include <ctime> //random_shuffle
 #include <algorithm> //srand
-#include <cstdlib> //time
+#include <cstdlib> //time 
+#include <random>
 
 using namespace std;
 
@@ -113,11 +114,7 @@ void CardDeck::print_hand(vector<Card> &hand) {
 
 void CardDeck::shuffle(int seed) {
 
-    if (seed == 0) { //if no set seed, random seed generated
-        seed = static_cast<int>(time(0)); //cast to int
-    }
+  srand(time(0));
 
-    srand(seed);
-
-    random_shuffle(deck.begin(), deck.end());
+  random_shuffle(deck.begin(), deck.end());
 }

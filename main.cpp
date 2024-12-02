@@ -9,8 +9,8 @@ using namespace std;
 int score_hand(vector<Card> &hand) {
   //Sort the hand
   sort(hand.begin(), hand.end(), [](const Card &a, const Card &b) {
-    return a.rank < b.rank;
-  });
+      return a.rank < b.rank;
+      });
 
   //Straight Flush NOT CORRECT
   if ((hand[1].rank == hand[0].rank + 1 && hand[2].rank == hand[1].rank + 1) && 
@@ -58,16 +58,14 @@ int main() {
   vector<Card> player_hand;
 
   CardDeck *deck = new CardDeck(52);
-  deck->shuffle(12); //will always be random unless specific is used (dont use 0)
-                     //deck->print_deck();
+  deck->shuffle(); //will always be random unless specific is used (dont use 0)
 
   cout << "Welcome to 3 Card Poker!" << endl << endl;
 
   while (true) {
     cout << "How much money would you like to start with? ($10 - $50)" << endl;
     cout << ">> ";
-    cin >> player_money;
-    
+
     if (!(cin >> player_money)) {
       cout << "Invalid input. Please try again. " << endl;
       cin.clear();
@@ -93,14 +91,20 @@ int main() {
     while (true) {
       cout << "How much money would you like to blind bet? (minimum $5)" << endl; 
       cout << ">> ";
-      cin >> blind;
 
+      if (!(cin >> blind)) {
+        cout << "Invalid input. Please try again. " << endl;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        continue;
+      }
       if (blind < 5 || blind > player_money) {
-        cout << "Invalid input. Please try again. ";
+        cout << "Invalid input. Please try again. " << endl;
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        continue;
       }
-      else {
-        break;
-      }
+      
+      break;
     }
     player_money -= blind;
     pot += (blind * 2);
@@ -174,25 +178,25 @@ int main() {
 
 
     //if player wins 
-	if (player_hand_score > dealer_hand_score) { 
-		cout << "Congradulations! You win!" << endl;
-		player_money += pot;
-		pot = 0;
-    player_wins += 1;
-		cout << "Your current cash total is now $" << player_money << "!" << endl;
-	}
-	else if (player_hand_score < dealer_hand_score) {
-		cout << "Sorry! Dealer wins!" << endl;
-		pot = 0;
-    dealer_wins += 1;
-		cout << "Your current cash total is now $" << player_money << "." << endl;
-	}
-	else {
-		cout << "Tie! No winner!" << endl;
-		player_money += (pot / 2);
-		pot = 0;
-		cout << "Your current cash total is now $" << player_money << "." << endl;
-	}
+    if (player_hand_score > dealer_hand_score) { 
+      cout << "Congradulations! You win!" << endl;
+      player_money += pot;
+      pot = 0;
+      player_wins += 1;
+      cout << "Your current cash total is now $" << player_money << "!" << endl;
+    }
+    else if (player_hand_score < dealer_hand_score) {
+      cout << "Sorry! Dealer wins!" << endl;
+      pot = 0;
+      dealer_wins += 1;
+      cout << "Your current cash total is now $" << player_money << "." << endl;
+    }
+    else {
+      cout << "Tie! No winner!" << endl;
+      player_money += (pot / 2);
+      pot = 0;
+      cout << "Your current cash total is now $" << player_money << "." << endl;
+    }
 
     while (true) { //pulled from blackjack
       if (player_money == 0) {
