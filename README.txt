@@ -1,4 +1,4 @@
-Camden Goering, Paul Blair, Nick Rich - Capstone Lab 3 Card Poker
+Camden Goering, Paul Blair, Nick Rich - Capstone Lab 3-Card Poker
 
 This lab works like standard poker, just with 3 cards.
 You (the player) start with $10-$50 when starting a new game, you are then prompted for a blind bet.
