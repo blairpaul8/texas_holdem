@@ -69,14 +69,14 @@ int main() {
     cin >> player_money;
     
     if (!(cin >> player_money)) {
-      cout << "Invalid input. Please try again. ";
+      cout << "Invalid input. Please try again. " << endl;
       cin.clear();
       cin.ignore(numeric_limits<streamsize>::max(),'\n');
       continue;
     }
 
     if (player_money < 10 || player_money > 50) {
-      cout << "Invalid input. Please try again. ";
+      cout << "Invalid input. Please try again. " << endl;
       cin.ignore(numeric_limits<streamsize>::max(),'\n');
       continue;
     }
