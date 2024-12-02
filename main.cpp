@@ -6,11 +6,10 @@ using namespace std;
 
 //We can use this to evauluate both the player and dealer hand.
 int score_hand(vector<Card> hand) {
+
+  
   int hand_value = 0;
 
-  //Need to write the if statements to check the hand and also we need to make 
-  //each of the six winning hands equate to a number value.
-  //
   //Straight Flush NOT CORRECT
   if ((hand[0].rank == hand[1].rank && hand[0].rank == hand[2].rank) && 
       ((hand[0].suit == hand[1].suit && hand[0].suit == hand[2].suit))) {
@@ -22,8 +21,24 @@ int score_hand(vector<Card> hand) {
     hand_value = 5;
   }
 
+  //Straight
+  if () {
+    hand_value = 4;
+  }
 
+  //Flush
+  if () {
+    hand_value = 3;
+  } 
+  //Pair
+  if () {
+    hand_value = 2;
+  }
 
+  //High card 
+  if () {
+    hand_value = 1;
+  }
 
   return hand_value;
 }
