@@ -158,6 +158,8 @@ int main() {
     cout << "---------------------------------" << endl << endl;
 
     //player/dealer win check
+    player_hand_score = score_hand(player_hand);
+    dealer_hand_score = score_hand(dealer_hand);
 
 
     //if player wins 
