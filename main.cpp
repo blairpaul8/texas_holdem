@@ -70,6 +70,8 @@ int main() {
 
     if (player_money < 10 || player_money > 50) {
       cout << "Invalid input. Please try again. ";
+      cin.ignore();
+      cin.clear();
     }
     else {
       break;
@@ -186,6 +188,11 @@ int main() {
 	}
 
     while (true) { //pulled from blackjack
+      if (player_money == 0) {
+        cout << endl << "You're out of money. Go Home." << endl;
+        playing = false;
+        break;
+      }
 
       cout << endl << "Would you like to play again? ('y' or 'n')" << endl;
       cout << ">> ";
