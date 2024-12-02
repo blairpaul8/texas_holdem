@@ -92,7 +92,7 @@ int main() {
       }
     }
     player_money -= blind;
-    pot += blind;
+    pot += (blind * 2);
     cout << "Your current cash total is now $" << player_money << "." << endl;
 
     //deal cards
@@ -136,7 +136,7 @@ int main() {
             cout << "Invalid input. Please try again. ";
           }
           else {
-            pot += raise;
+            pot += (raise * 2);
             player_money -= raise;
             cout << "Your current cash total is now $" << player_money << "." << endl;
             break;
@@ -158,20 +158,26 @@ int main() {
     cout << "---------------------------------" << endl << endl;
 
     //player/dealer win check
-    player_hand_score = score_hand(player_hand);
-    dealer_hand_score = score_hand(dealer_hand);
 
 
     //if player wins 
-    cout << "Congradulations! You win!" << endl;
-    player_money += (pot * 2);
-    pot = 0;
-    cout << "Your current cash total is now $" << player_money << "!" << endl;
-
-    //if dealer wins
-    cout << "Sorry! Dealer wins!" << endl;
-    pot = 0;
-    cout << "Your current cash total is now $" << player_money << "." << endl;
+	if (player_hand_score > dealer_hand_score) { 
+		cout << "Congradulations! You win!" << endl;
+		player_money += pot;
+		pot = 0;
+		cout << "Your current cash total is now $" << player_money << "!" << endl;
+	}
+	else if (player_hand_score < dealer_hand_score) {
+		cout << "Sorry! Dealer wins!" << endl;
+		pot = 0;
+		cout << "Your current cash total is now $" << player_money << "." << endl;
+	}
+	else {
+		cout << "Tie! No winner!" << endl;
+		player_money += (pot / 2);
+		pot = 0;
+		cout << "Your current cash total is now $" << player_money << "." << endl;
+	}
 
     while (true) { //pulled from blackjack
 
