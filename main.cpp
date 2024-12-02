@@ -13,7 +13,7 @@ int score_hand(vector<Card> &hand) {
   });
 
   //Straight Flush NOT CORRECT
-  if ((hand[1].rank == hand[0].rank + 1 && hand[1].rank == hand[2].rank + 1) && 
+  if ((hand[1].rank == hand[0].rank + 1 && hand[2].rank == hand[1].rank + 1) && 
       ((hand[0].suit == hand[1].suit && hand[0].suit == hand[2].suit))) {
     return 6;
   }
@@ -24,7 +24,7 @@ int score_hand(vector<Card> &hand) {
   }
 
   //Straight
-  if (hand[1].rank == hand[0].rank + 1 && hand[1].rank == hand[2].rank + 1) {
+  if (hand[1].rank == hand[0].rank + 1 && hand[2].rank == hand[1].rank + 1) {
     return 4;
   }
 
@@ -44,8 +44,10 @@ int score_hand(vector<Card> &hand) {
 int main() {
 
   int player_wins = 0, dealer_wins = 0;
-  int player_money;
-  int blind, raise, pot;
+  int player_money = 0;
+  int blind = 0;
+  int raise = 0; 
+  int pot = 0;
   char turn;
   bool playing = true;
 
@@ -167,11 +169,13 @@ int main() {
 		cout << "Congradulations! You win!" << endl;
 		player_money += pot;
 		pot = 0;
+    player_wins += 1;
 		cout << "Your current cash total is now $" << player_money << "!" << endl;
 	}
 	else if (player_hand_score < dealer_hand_score) {
 		cout << "Sorry! Dealer wins!" << endl;
 		pot = 0;
+    dealer_wins += 1;
 		cout << "Your current cash total is now $" << player_money << "." << endl;
 	}
 	else {
