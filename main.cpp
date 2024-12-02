@@ -205,22 +205,22 @@ int main() {
       cout << "Your current cash total is now $" << player_money << "!" << endl;
     }
     else if (player_hand_score < dealer_hand_score) {
-		if (player_hand_score == 6) {
+		if (dealer_hand_score == 6) {
             cout << "Straight Flush! ";
         }
-        if (player_hand_score == 5) {
+        if (dealer_hand_score == 5) {
             cout << "Three of a Kind! ";
         }
-        if (player_hand_score == 4) {
+        if (dealer_hand_score == 4) {
             cout << "Straight! ";
         }
-        if (player_hand_score == 3) {
+        if (dealer_hand_score == 3) {
             cout << "Flush! ";
         }
-        if (player_hand_score == 2) {
+        if (dealer_hand_score == 2) {
             cout << "Pair! ";
         }
-        if (player_hand_score == 1) {
+        if (dealer_hand_score == 1) {
             cout << "High Card! ";
         }
       cout << "Sorry! Dealer wins!" << endl;
