@@ -46,5 +46,3 @@ class CardDeck {
     int n = 52;
     vector<Card> deck;
 };
-
-
