@@ -13,7 +13,7 @@ int score_hand(vector<Card> &hand) {
       return a.rank < b.rank;
       });
 
-  //Straight Flush NOT CORRECT
+  //Straight Flush
   if ((hand[1].rank == hand[0].rank + 1 && hand[2].rank == hand[1].rank + 1) && 
       ((hand[0].suit == hand[1].suit && hand[0].suit == hand[2].suit))) {
     return 6;
@@ -52,14 +52,8 @@ int main() {
   char turn;
   bool playing = true;
 
-  int player_hand_score = 0;
-  int dealer_hand_score = 0;
-
   vector<Card> dealer_hand;
   vector<Card> player_hand;
-
-  CardDeck *deck = new CardDeck(52);
-  deck->shuffle(); //will always be random unless specific is used (dont use 0)
 
   cout << "Welcome to 3 Card Poker!" << endl << endl;
 
@@ -85,7 +79,13 @@ int main() {
   }
 
   while (playing) {
-    cout << "Starting new game with $" << player_money << "..." << endl;
+	CardDeck *deck = new CardDeck(52);	  
+	deck->shuffle(); //will always be random unless specific is used (dont use 0)
+
+	int player_hand_score = 0;
+	int dealer_hand_score = 0;
+
+	cout << "Starting new game with $" << player_money << "..." << endl;
     cout << "Current Player wins: " << player_wins << endl;
     cout << "Current Dealer wins: " << dealer_wins << endl << endl;
 
@@ -180,6 +180,24 @@ int main() {
 
     //if player wins 
     if (player_hand_score > dealer_hand_score) { 
+		if (player_hand_score == 6) {
+			cout << "Straight Flush! ";
+		}
+		if (player_hand_score == 5) {
+			cout << "Three of a Kind! ";
+		}
+		if (player_hand_score == 4) {
+			cout << "Straight! ";
+		}
+		if (player_hand_score == 3) {
+			cout << "Flush! ";
+		}
+		if (player_hand_score == 2) {
+			cout << "Pair! ";
+		}
+		if (player_hand_score == 1) {
+			cout << "High Card! ";
+		}
       cout << "Congradulations! You win!" << endl;
       player_money += pot;
       pot = 0;
@@ -187,6 +205,24 @@ int main() {
       cout << "Your current cash total is now $" << player_money << "!" << endl;
     }
     else if (player_hand_score < dealer_hand_score) {
+		if (player_hand_score == 6) {
+            cout << "Straight Flush! ";
+        }
+        if (player_hand_score == 5) {
+            cout << "Three of a Kind! ";
+        }
+        if (player_hand_score == 4) {
+            cout << "Straight! ";
+        }
+        if (player_hand_score == 3) {
+            cout << "Flush! ";
+        }
+        if (player_hand_score == 2) {
+            cout << "Pair! ";
+        }
+        if (player_hand_score == 1) {
+            cout << "High Card! ";
+        }
       cout << "Sorry! Dealer wins!" << endl;
       pot = 0;
       dealer_wins += 1;
@@ -199,7 +235,10 @@ int main() {
       cout << "Your current cash total is now $" << player_money << "." << endl;
     }
 
-    while (true) { //pulled from blackjack
+    dealer_hand.clear();
+	player_hand.clear();
+	
+	while (true) { //pulled from blackjack
       if (player_money == 0) {
         cout << endl << "You're out of money. Go Home." << endl;
         playing = false;
