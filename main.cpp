@@ -70,7 +70,7 @@ int main() {
 
     if (player_money < 10 || player_money > 50) {
       cout << "Invalid input. Please try again. ";
-      cin.ignore();
+      cin.ignore(numeric_limits<streamsize>::max(),'\n');
       cin.clear();
     }
     else {
