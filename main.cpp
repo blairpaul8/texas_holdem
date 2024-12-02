@@ -1,46 +1,44 @@
 #include "CardDeck.h"
 #include <vector>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
 //We can use this to evauluate both the player and dealer hand.
-int score_hand(vector<Card> hand) {
-
-  
-  int hand_value = 0;
+int score_hand(vector<Card> &hand) {
+  //Sort the hand
+  sort(hand.begin(), hand.end(), [](const Card &a, const Card &b) {
+    return a.rank < b.rank;
+  });
 
   //Straight Flush NOT CORRECT
-  if ((hand[0].rank == hand[1].rank && hand[0].rank == hand[2].rank) && 
+  if ((hand[1].rank == hand[0].rank + 1 && hand[1].rank == hand[2].rank + 1) && 
       ((hand[0].suit == hand[1].suit && hand[0].suit == hand[2].suit))) {
-    hand_value = 6;
+    return 6;
   }
 
   //Three of a kind
   if (hand[0].rank == hand[1].rank && hand[0].rank == hand[2].rank) {
-    hand_value = 5;
+    return 5;
   }
 
   //Straight
-  if () {
-    hand_value = 4;
+  if (hand[1].rank == hand[0].rank + 1 && hand[1].rank == hand[2].rank + 1) {
+    return 4;
   }
 
   //Flush
-  if () {
-    hand_value = 3;
+  if (hand[0].suit == hand[1].suit && hand[0].suit == hand[2].suit) {
+    return 3;
   } 
   //Pair
-  if () {
-    hand_value = 2;
+  if (hand[0].rank == hand[1].rank || hand[1].rank == hand[2].rank) {
+    return 2;
   }
 
   //High card 
-  if () {
-    hand_value = 1;
-  }
-
-  return hand_value;
+  return 1;
 }
 
 int main() {
@@ -152,6 +150,7 @@ int main() {
       }
     }
 
+
     //player and dealer reveal cards
     cout << endl << "---------------------------------" << endl;
     cout << "Dealer's Hand" << endl;
@@ -159,6 +158,8 @@ int main() {
     cout << "---------------------------------" << endl << endl;
 
     //player/dealer win check
+    player_hand_score = score_hand(player_hand);
+    dealer_hand_score = score_hand(dealer_hand);
 
 
     //if player wins 

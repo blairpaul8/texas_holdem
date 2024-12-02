@@ -33,7 +33,7 @@ CardDeck::CardDeck(int n) {
     else {
       playingCard.suit = 3;
     }
-    playingCard.rank = cardValues[i % 13];
+    playingCard.rank = i % 13;
     this->deck.push_back(playingCard);
   }
 }
@@ -76,7 +76,7 @@ void CardDeck::print_hand(vector<Card> &hand) {
         suit = clubs;
       }
       //If the rank is 10 the spacing for the card printing has to change
-      if (hand[j].rank == "10") {
+      if (hand[j].rank == 8) {
         spaces = 6;
         spaces2 = 7;
       }
@@ -89,7 +89,7 @@ void CardDeck::print_hand(vector<Card> &hand) {
         cout << " ------- " << "   ";
       }
       if (i == 1) {
-        cout << "|" << hand[j].rank << setw(spaces) << "|" << "   ";
+        cout << "|" << cardValues[hand[j].rank] << setw(spaces) << "|" << "   ";
       }
       if (i == 2) {
         cout << "|       |" << "   ";
@@ -101,7 +101,7 @@ void CardDeck::print_hand(vector<Card> &hand) {
         cout << "|       |" << "   ";
       }
       if (i == 5) {
-        cout << "|" << setw(spaces2) << hand[j].rank << "|" << "   ";
+        cout << "|" << setw(spaces2) << cardValues[hand[j].rank] << "|" << "   ";
       }
       if (i == 6) {
         cout << " ------- " << "   ";

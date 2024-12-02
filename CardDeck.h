@@ -10,11 +10,11 @@ using namespace std;
 // 2 = spades
 // 3 = clubs
 struct Card {
-  string rank;
+  int rank;
   int suit;
 
   Card() {
-    rank = "";
+    rank = 0;
     suit = 0;
   }
   Card(const Card& other) {
