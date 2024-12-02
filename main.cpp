@@ -4,6 +4,18 @@
 
 using namespace std;
 
+//We can use this to evauluate both the player and dealer hand.
+int score_hand(vector<int> hand) {
+ int hand_value = 0;
+
+ //Need to write the if statements to check the hand and also we need to make 
+ //each of the six winning hands equate to a number value.
+
+
+
+ return hand_value;
+}
+
 
 int main() {
 
@@ -12,6 +24,9 @@ int main() {
   int blind, raise, pot;
   char turn;
   bool playing = true;
+
+  int player_hand_score = 0;
+  int dealer_hand_score = 0;
 
   vector<Card> dealer_hand;
   vector<Card> player_hand;
@@ -70,7 +85,10 @@ int main() {
     }
 
     //display playes cards
+    cout << endl << "---------------------------------" << endl;
+    cout << "Player's Hand" << endl;
     deck->print_hand(player_hand);
+    cout << "---------------------------------" << endl << endl;
 
     cout << "Total pot money: $" << pot << endl;
 
@@ -109,7 +127,10 @@ int main() {
     }
 
     //player and dealer reveal cards
+    cout << endl << "---------------------------------" << endl;
+    cout << "Dealer's Hand" << endl;
     deck->print_hand(dealer_hand);
+    cout << "---------------------------------" << endl << endl;
 
     //player/dealer win check
 
@@ -127,7 +148,7 @@ int main() {
 
     while (true) { //pulled from blackjack
 
-      cout << "Would you like to play again? ('y' or 'n')" << endl;
+      cout << endl << "Would you like to play again? ('y' or 'n')" << endl;
       cout << ">> ";
       cin >> turn;
 
