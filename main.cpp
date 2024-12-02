@@ -67,11 +67,18 @@ int main() {
     cout << "How much money would you like to start with? ($10 - $50)" << endl;
     cout << ">> ";
     cin >> player_money;
+    
+    if (!(cin >> player_money)) {
+      cout << "Invalid input. Please try again. ";
+      cin.clear();
+      cin.ignore(numeric_limits<streamsize>::max(),'\n');
+      continue;
+    }
 
     if (player_money < 10 || player_money > 50) {
       cout << "Invalid input. Please try again. ";
       cin.ignore(numeric_limits<streamsize>::max(),'\n');
-      cin.clear();
+      continue;
     }
     else {
       break;
