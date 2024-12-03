@@ -1,1 +1,1 @@
-tar -cvf capstone.tar CardDeck.h CardDeck.cpp main.cpp makefile
+tar -cvf capstone.tar CardDeck.h CardDeck.cpp main.cpp makefile README.txt report.txt timelog.txt
