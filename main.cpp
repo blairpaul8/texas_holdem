@@ -198,7 +198,7 @@ int main() {
 		if (player_hand_score == 1) {
 			cout << "High Card! ";
 		}
-      cout << "Congradulations! You win!" << endl;
+      cout << "Congratulations! You win!" << endl;
       player_money += pot;
       pot = 0;
       player_wins += 1;
