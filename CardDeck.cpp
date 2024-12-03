@@ -10,6 +10,7 @@
 
 using namespace std;
 
+//Used to display the symbols for the card (hearts, diamonds, clubs, and spades)
 const string hearts = reinterpret_cast<const char*>(u8"\u2665");
 const string diamonds = reinterpret_cast<const char*>(u8"\u2666");
 const string clubs = reinterpret_cast<const char*>(u8"\u2663");
@@ -86,6 +87,7 @@ void CardDeck::print_hand(vector<Card> &hand) {
         spaces2 = 7;
       }
 
+      //Gross cout printing of the cards to be displayed in the terminal.
       if (i == 0) {
         cout << " ------- " << "   ";
       }

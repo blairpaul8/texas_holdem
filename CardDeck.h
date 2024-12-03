@@ -17,11 +17,12 @@ struct Card {
     rank = 0;
     suit = 0;
   }
+  //copy constructor 
   Card(const Card& other) {
     this->rank = other.rank;
     this->suit = other.suit;
   }
-  
+  //Assignment operator overload
   Card& operator=(const Card& other) {
     if (this != &other) {
       rank = other.rank;
