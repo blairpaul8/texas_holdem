@@ -6,7 +6,7 @@
 
 using namespace std;
 
-//We can use this to evauluate both the player and dealer hand.
+//Used to evauluate both the player and dealer hand.
 int score_hand(vector<Card> &hand) {
   //Sort the hand
   sort(hand.begin(), hand.end(), [](const Card &a, const Card &b) {
@@ -124,7 +124,7 @@ int main() {
       }
     }
 
-    //display playes cards
+    //display players cards
     cout << endl << "---------------------------------" << endl;
     cout << "Player's Hand" << endl;
     deck->print_hand(player_hand);
@@ -167,13 +167,13 @@ int main() {
     }
 
 
-    //player and dealer reveal cards
+    //dealer reveal cards
     cout << endl << "---------------------------------" << endl;
     cout << "Dealer's Hand" << endl;
     deck->print_hand(dealer_hand);
     cout << "---------------------------------" << endl << endl;
 
-    //player/dealer win check
+    //player/dealer win score hand
     player_hand_score = score_hand(player_hand);
     dealer_hand_score = score_hand(dealer_hand);
 
@@ -204,6 +204,7 @@ int main() {
       player_wins += 1;
       cout << "Your current cash total is now $" << player_money << "!" << endl;
     }
+    // If dealer wins
     else if (player_hand_score < dealer_hand_score) {
 		if (dealer_hand_score == 6) {
             cout << "Straight Flush! ";
@@ -238,7 +239,7 @@ int main() {
     dealer_hand.clear();
 	player_hand.clear();
 	
-	while (true) { //pulled from blackjack
+	while (true) { 
       if (player_money == 0) {
         cout << endl << "You're out of money. Go Home." << endl;
         playing = false;
