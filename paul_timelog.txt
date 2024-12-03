@@ -6,7 +6,7 @@ Timelog:
 
 - 1 hour figuring out how to print player and dealers cards with the symbols. 
 
-- 2 hours writing the deal function to deal to the cards. In order to do this I learned that you can write a copy constructor and assignment overload for a struct.
+- 2 hours writing the deal function with Nick to deal to the cards. In order to do this I learned that you can write a copy constructor and assignment overload for a struct.
 
 - 30 minutes learning how to use makefiles and wrote a makefile to standardize how we were compiling the project/ ease of use for compiling all the files together.
 
