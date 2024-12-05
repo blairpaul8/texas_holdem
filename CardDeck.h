@@ -1,3 +1,11 @@
+/* Name: Paul Blair, Camden Goering, Nick Rich
+ * Description: This game is three-card poker that will mimic playing it in a casino. 
+ * At the table you make a buy-in (blind bet) to play. Then you are dealt three cards
+ * and based on your cards you can make an additional bet acoording to how good you think
+ * your hand is. Then the dealers cards are revealed and the player and dealer hands are scored.
+ * If the player wins the pot is added to their money if not then your bet is deducted from their
+ * money.
+ */
 #include <vector>
 #include <stdlib.h>
 
