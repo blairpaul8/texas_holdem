@@ -1,4 +1,5 @@
-Camden Goering, Paul Blair, Nick Rich - Capstone Lab 3-Card Poker
+# 3 Card Poker
+## Camden Goering, Paul Blair, Nick Rich - Capstone Lab 3-Card Poker
 
 - There is a makefile included use make and then ./main to run the game.
 
